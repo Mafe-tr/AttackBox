@@ -2,7 +2,7 @@
 # Sobe tudo com: docker compose up -d --build
 services:
   csi:
-    image: grupoCSI/operacao-espelho:1.0   # alvo (imagem publicada no Docker Hub)
+    image: mafetr/operacao-espelho:1.0   # alvo (imagem publicada no Docker Hub)
     networks:
       default:
         aliases:
