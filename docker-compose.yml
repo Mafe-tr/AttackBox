@@ -1,0 +1,29 @@
+# AttackBox CSI — toolbox Kali + alvo do CTF, prontos para atacar.
+# Sobe tudo com: docker compose up -d --build
+services:
+  csi:
+    image: grupoCSI/operacao-espelho:1.0   # alvo (imagem publicada no Docker Hub)
+    networks:
+      default:
+        aliases:
+          - portonorte.local
+          - www.portonorte.local
+          - rastreio.portonorte.local
+    restart: unless-stopped
+
+  attackbox:
+    build: .
+    image: csi-attackbox:local
+    working_dir: /work
+    volumes:
+      - attack-work:/work
+    stdin_open: true
+    tty: true
+    depends_on:
+      - csi
+
+networks:
+  default: {}
+
+volumes:
+  attack-work: {}
