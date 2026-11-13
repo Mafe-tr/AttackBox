@@ -22,16 +22,6 @@ docker compose up -d --build
 docker compose exec attackbox bash
 ```
 
-Dentro da attackbox, o alvo responde pela DNS da rede do Compose:
-
-| O quê            | Endereço                         |
-|------------------|----------------------------------|
-| Painel web       | `http://csi`                     |
-| Site de fachada  | `http://rastreio.portonorte.local` |
-| SSH              | `ssh <usuario>@csi` (porta 22)   |
-
-A pasta `/work` persiste entre sessões (volume) para guardar arquivos extraídos.
-
 ## Objetivo
 Capturar as **6 flags** no formato `TAC{...}` e, ao final, identificar o culpado.
 *(Sem spoilers aqui — a trilha é com você.)*
